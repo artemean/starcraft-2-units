@@ -39,8 +39,51 @@ export default function UnitCard({ data }) {
           </td>
         </tr>
         <tr>
-          <td className="unit-prop">HP</td>
+          <td className="unit-prop">HP (life)</td>
           <td>{data.hp}</td>
+        </tr>
+        <tr>
+          <td className="unit-prop">Attack</td>
+          <td>
+            <span className="unit-prop__key">Target:</span>
+            {data.attack.target.map(el => (
+              <span className="unit-card__attr">{el}</span>
+            ))}
+            <span className="unit-prop__key">Damage:</span>
+            {data.attack.damage}
+          </td>
+        </tr>
+        <tr>
+          <td className="unit-prop">Armor</td>
+          <td>{data.armor}</td>
+        </tr>
+        <tr>
+          <td className="unit-prop">Sight</td>
+          <td>{data.sight}</td>
+        </tr>
+        <tr>
+          <td className="unit-prop">Speed</td>
+          <td>{data.speed}</td>
+        </tr>
+        <tr>
+          <td className="unit-prop">Cargo size</td>
+          <td>{data.cargoSize}</td>
+        </tr>
+        <tr>
+          <td className="unit-prop">Strong against</td>
+          <td>
+            {data.strongAgainst.map(el => (
+              <span className="unit-card__attr">{el}</span>
+            ))}
+          </td>
+        </tr>
+        <tr>
+          <td className="unit-prop">Weak against</td>
+          <td>
+            {data.weakAgainst.map(el => (
+              <span className="unit-card__attr">{el}</span>
+            ))}
+          </td>
         </tr>
       </table>
     </div>

@@ -90,5 +90,13 @@ export default {
         name: "Star Port"
       }
     ]
+  },
+  zerg: {
+    units: [],
+    buildings: []
+  },
+  protoss: {
+    units: [],
+    buildings: []
   }
 };

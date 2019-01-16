@@ -26,7 +26,7 @@ td {
   padding: 0 5px;
 }
 
-.main-page-enter {
+/* .main-page-enter {
   transform: translate(100%);
 }
 .main-page-enter.main-page-enter-active {
@@ -39,7 +39,7 @@ td {
 .main-page-exit.main-page-exit-active {
   transform: translate(-100%);
   transition: transform 500ms ease-in-out;
-}
+} */
 
 .card {
   padding: 10px;
@@ -69,4 +69,8 @@ td {
 
 .unit-prop {
   font-weight: bold;
+}
+
+.unit-prop__key {
+  padding-right: 5px;
 }

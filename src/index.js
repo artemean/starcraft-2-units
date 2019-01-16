@@ -16,24 +16,10 @@ function App() {
       <div className="App">
         <Header />
         <h1>StarCraft 2 Units</h1>
-        <Route
-          render={({ location }) => (
-            <TransitionGroup>
-              <CSSTransition
-                key={location.key}
-                classNames="main-page"
-                timeout={500}
-              >
-                <Switch location={location}>
-                  <Route path="/" exact component={Index} />
-                  <Route path="/terran" component={Terran} />
-                  <Route path="/protoss" component={Protoss} />
-                  <Route path="/zerg" component={Zerg} />
-                </Switch>
-              </CSSTransition>
-            </TransitionGroup>
-          )}
-        />
+        <Route path="/" exact component={Index} />
+        <Route path="/terran" component={Terran} />
+        <Route path="/protoss" component={Protoss} />
+        <Route path="/zerg" component={Zerg} />
       </div>
     </Router>
   );
