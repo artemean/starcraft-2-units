@@ -1,78 +1,83 @@
 import React from "react";
+import data from "../data";
 
-export default function UnitCard({ data }) {
+export default function UnitCard({ match }) {
+  const race = match.url.split("/")[1];
+  const unit = match.url.split("/")[2];
+  const unitData = data[race].units.find(el => el.name === unit);
+
   return (
-    <div key={data.id}>
+    <div key={unitData.id}>
       <table className="unit-card">
         <tr>
           <td className="unit-prop">Unit name:</td>
-          <td>{data.name}</td>
+          <td>{unitData.name}</td>
         </tr>
         <tr>
           <td className="unit-prop">Production building:</td>
-          <td>{data.builtFrom}</td>
+          <td>{unitData.builtFrom}</td>
         </tr>
         <tr>
           <td className="unit-prop">Cost:</td>
           <td>
             <span className="unit-card__attr">
-              Minerals: {data.cost && data.cost.minerals}
+              Minerals: {unitData.cost && unitData.cost.minerals}
             </span>
             <span className="unit-card__attr">
-              Gas: {data.cost && data.cost.gas}
+              Gas: {unitData.cost && unitData.cost.gas}
             </span>
             <span className="unit-card__attr">
-              Time: {data.cost && data.cost.time}
+              Time: {unitData.cost && unitData.cost.time}
             </span>
             <span className="unit-card__attr">
-              Supply: {data.cost && data.cost.supply}
+              Supply: {unitData.cost && unitData.cost.supply}
             </span>
           </td>
         </tr>
         <tr>
           <td className="unit-prop">Attributes</td>
           <td>
-            {data.attributes &&
-              data.attributes.map(el => (
+            {unitData.attributes &&
+              unitData.attributes.map(el => (
                 <span className="unit-card__attr">{el}</span>
               ))}
           </td>
         </tr>
         <tr>
           <td className="unit-prop">HP (life)</td>
-          <td>{data.hp}</td>
+          <td>{unitData.hp}</td>
         </tr>
         <tr>
           <td className="unit-prop">Attack</td>
           <td>
             <span className="unit-prop__key">Target:</span>
-            {data.attack.target.map(el => (
+            {unitData.attack.target.map(el => (
               <span className="unit-card__attr">{el}</span>
             ))}
             <span className="unit-prop__key">Damage:</span>
-            {data.attack.damage}
+            {unitData.attack.damage}
           </td>
         </tr>
         <tr>
           <td className="unit-prop">Armor</td>
-          <td>{data.armor}</td>
+          <td>{unitData.armor}</td>
         </tr>
         <tr>
           <td className="unit-prop">Sight</td>
-          <td>{data.sight}</td>
+          <td>{unitData.sight}</td>
         </tr>
         <tr>
           <td className="unit-prop">Speed</td>
-          <td>{data.speed}</td>
+          <td>{unitData.speed}</td>
         </tr>
         <tr>
           <td className="unit-prop">Cargo size</td>
-          <td>{data.cargoSize}</td>
+          <td>{unitData.cargoSize}</td>
         </tr>
         <tr>
           <td className="unit-prop">Strong against</td>
           <td>
-            {data.strongAgainst.map(el => (
+            {unitData.strongAgainst.map(el => (
               <span className="unit-card__attr">{el}</span>
             ))}
           </td>
@@ -80,7 +85,7 @@ export default function UnitCard({ data }) {
         <tr>
           <td className="unit-prop">Weak against</td>
           <td>
-            {data.weakAgainst.map(el => (
+            {unitData.weakAgainst.map(el => (
               <span className="unit-card__attr">{el}</span>
             ))}
           </td>
